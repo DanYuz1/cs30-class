@@ -1,5 +1,5 @@
-// Project Title
-// Your Name
+// Cookie Cliker game (interactive s)
+// Daniel Yuzbashev
 // Date
 //
 // Extra for Experts:
