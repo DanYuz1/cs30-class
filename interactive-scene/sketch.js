@@ -18,6 +18,9 @@ let cookiesPerSecond = 0; // store upgrade effect
 let grandmaCost = 50;
 let grandmaCount = 0;
 
+// gameState for the game
+let gameState = "menu";
+
 function preload() {
   cookieImg = loadImage("cookie_for_game.png");
 }
