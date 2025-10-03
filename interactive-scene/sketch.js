@@ -1,4 +1,4 @@
-// Cookie Cliker game (interactive s)
+// Cookie Cliker game (interactive scene)
 // Daniel Yuzbashev
 // Date
 //
@@ -11,15 +11,17 @@ let cookieX;
 let cookieY;
 let cookieImg;
 
+// store upgrade effect
 let lastCookieTime;
-let cookiesPerSecond = 0; // store upgrade effect
+let cookiesPerSecond = 0; 
 
 // Store item variables
 let grandmaCost = 50;
 let grandmaCount = 0;
 
 // Game state
-let gameState = "menu"; // "menu", "game", "gameover"
+// "menu", "game", "gameover"
+let gameState = "menu"; 
 
 function preload() {
   cookieImg = loadImage("cookie_for_game.png");
@@ -61,7 +63,7 @@ function drawMenu() {
 
 function runGame() {
   // Cookie
-  image(cookieImg, cookieX, cookieY, 250, 250);
+  image(cookieImg, cookieX, cookieY, 500, 500);
 
   // Timer for cookies per second
   if (millis() - lastCookieTime > 1000) {
