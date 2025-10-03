@@ -63,7 +63,7 @@ function drawMenu() {
 
 function runGame() {
   // Cookie
-  image(cookieImg, cookieX, cookieY, 500, 500);
+  image(cookieImg, cookieX, cookieY, 250, 250);
 
   // Timer for cookies per second
   if (millis() - lastCookieTime > 1000) {
