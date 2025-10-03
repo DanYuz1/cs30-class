@@ -1,6 +1,6 @@
 // Cookie Cliker game (interactive scene)
 // Daniel Yuzbashev
-// Date
+// 10/3/2025
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
