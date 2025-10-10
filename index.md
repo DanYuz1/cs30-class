@@ -2,8 +2,10 @@
 
 ## Demos
  - [Traffic Lights](traffic-lights)
- -[Boucing Balls](bouncing-balls)
- -[Gererative Art](generative-art)
+ - [Boucing Balls](bouncing-balls)
+ - [Gererative Art](generative-art)
 
 ## Assignments
 - [Interactive Scene](interactive-scene)
+- [Arrays and Objects](arrrys-and-objects)
+
