@@ -22,19 +22,19 @@ let maze = [
   [1,0,1,1,1,1,0,0,1,1,0,1,1,1,0,1,1,0,1,0,1,1,1,0,1],
   [1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,1],
   [1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1],
-  [1,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,1,0,1,0,1],
-  [1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,0,1,0,1,0,1],
+  [1,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,0,1,0,1,0,1],
+  [1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,0,1,0,0,0,1],
   [1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1,0,1],
   [1,0,1,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,1,0,1,0,1,0,1],
   [1,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,1,0,1,0,1],
-  [1,0,1,0,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,0,1,0,1],
+  [1,0,1,0,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,0,0,0,1],
   [1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1],
   [1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,0,1,0,1],
   [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
   [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ];
 
-let tileSize = 40;
+let tileSize = 35;
 let player;
 let enemies = [];
 let coins = [];
@@ -94,37 +94,25 @@ function drawMaze() {
   }
 }
 
-function movePlayer() {
+function drawPlayer() {
   fill(0, 200, 255);
   rect(player.x * tileSize + 10, player.y * tileSize + 10, tileSize - 20, tileSize - 20);
 }
 
-function keyPressed() {
-  // Move left (A)
-  if (key === 'a' || key === 'A') {
-    let newX = player.x - player.speed;
-    if (canMove(newX, player.y)) player.x = newX;
+function movePlayer() {
+  if (keyIsDown(65) && canMove(player.x - player.speed, player.y)) {
+    player.x -= player.speed;
   }
-
-  // Move right (D)
-  if (key === 'd' || key === 'D') {
-    let newX = player.x + player.speed;
-    if (canMove(newX, player.y)) player.x = newX;
+  if (keyIsDown(68) && canMove(player.x + player.speed, player.y)) {
+    player.x += player.speed;
   }
-
-  // Move up (W)
-  if (key === 'w' || key === 'W') {
-    let newY = player.y - player.speed;
-    if (canMove(player.x, newY)) player.y = newY;
+  if (keyIsDown(87) && canMove(player.x, player.y - player.speed)) {
+    player.y -= player.speed;
   }
-
-  // Move down (S)
-  if (key === 's' || key === 'S') {
-    let newY = player.y + player.speed;
-    if (canMove(player.x, newY)) player.y = newY;
+  if (keyIsDown(83) && canMove(player.x, player.y + player.speed)) {
+    player.y += player.speed;
   }
 }
-
 
 function canMove(x, y) {
   x = floor(x);
