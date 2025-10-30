@@ -6,12 +6,18 @@ let grid;
 let rows;
 let cols;
 let autoPlayIsOn = false;
+let gosper;
+
+function preload() {
+  gosper = loadJSON("gosper.json");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   cols = Math.floor(width/CELL_SIZE);
   rows = Math.floor(height/CELL_SIZE);
   grid = generateRandomGrid(cols, rows);
+  console.log(gosper);
 }
 
 function draw() {
@@ -54,6 +60,14 @@ function keyPressed() {
   }
   else if (key === "a") {
     autoPlayIsOn = !autoPlayIsOn;
+  }
+  else if (key === "g") {
+    console.log(gosper);
+    grid = gosper;
+    console.log(grid);
+  }
+  else if (key === "f") {
+    grid = fillGrid(cols, rows);
   }
 }
 
@@ -139,6 +153,17 @@ function generateEmptyGrid(cols, rows) {
     newGrid.push([]);
     for (let x = 0; x < cols; x++) {
       newGrid[y].push(0);
+    }
+  }
+  return newGrid;
+}
+
+function fillGrid(cols, rows) {
+  let newGrid = [];
+  for (let y = 0; y < rows; y++) {
+    newGrid.push([]);
+    for (let x = 0; x < cols; x++) {
+      newGrid[y].push(1);
     }
   }
   return newGrid;
