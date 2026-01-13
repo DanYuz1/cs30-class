@@ -1,0 +1,13 @@
+let safety 
+
+function safe() {
+  if (safe === "safe") {
+    drawsafe();
+  } 
+  else if (danger === "danger") {
+    drawDanger();
+  } 
+  else if (run === "runaway") {
+    drawrunaway();
+  }
+}
